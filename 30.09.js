@@ -78,9 +78,9 @@ function sumTo(n) {
   return n + sumTo(n - 1);
 }
 
-console.log(sumTo(1)); // Вывод: 1
-console.log(sumTo(3)); // Вывод: 6
-console.log(sumTo(5)); // Вывод: 15
+console.log(sumTo(1));
+console.log(sumTo(3)); 
+console.log(sumTo(5)); 
 --------------------------------------------------------------------
 
 //Задание 5.
