@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Резюме.html</title>
+</head>
+<body>
+
+  <header>
+    <h1>Маидов Марат (CHebupel)</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnfPRNVpwufR853qAS3y7icWr3O8uxTMoKtMC2WFHQtgn2l1riLKAe264&s=10" alt="Моя фотография (НЕ ФЕЙК!!!!!!!)" width="150">
+  </header>
+
+  <main>
+    <section>
+      <h2>О себе</h2>
+      <p>Привет! Я начинающий веб-разработчик. Изучаю основы HTML, CSS и JavaScript, играюв в War Thunder и NFS всех мастей.</p>
+    </section>
+
+    <section>
+      <h2>Навыки</h2>
+      <ul>
+        <li>Базовые знания HTML и CSS</li>
+        <li>Наиграл более 4к боев в War Thunder</li>
+        <li>Я еще не придумал</li>
+        <li>Адаптивная верстка</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Контакты</h2>
+      <p>Вы НЕ можете связаться со данными способами:</p>
+      <ul>
+        <li>Email: <a href="почта">gusejnovhajrudin@gmail.com</a></li>
+        <li>Телефон: <a href="телифон">+7 (676) 767-67-67</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>(НЕ)Связаться со мной</h2>
+      <form action="/submit" method="post">
+        
+        <p>
+          <label for="username">Имя:</label>
+          <input type="text" id="username" name="username" required>
+        </p>
+
+        <p>
+          <label for="useremail">Email:</label>
+          <input type="email" id="useremail" name="useremail" required>
+        </p>
+
+        <p>
+          <label for="birthdate">Дата рождения:</label>
+          <input type="date" id="birthdate" name="birthdate" required>
+        </p>
+
+        <fieldset>
+          <legend>Выбор трека обучения:</legend>
+          <input type="radio" id="frontend" name="track" value="frontend" checked>
+          <label for="frontend">Frontend</label><br>
+          
+          <input type="radio" id="backend" name="track" value="backend">
+          <label for="backend">Backend</label>
+        </fieldset>
+
+        <p>
+          <label for="city">Ваш город:</label>
+          <select id="city" name="city" required>
+            <option value="moscow">Москва</option>
+            <option value="spb">Норильск</option>
+            <option value="kazan">Браунау-ам-Инн</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="message">Ваш вопрос или сообщение:</label><br>
+          <textarea id="message" name="message" rows="5" cols="30" placeholder="Введите ваш текст здесь..."></textarea>
+        </p>
+
+        <p>
+          <input type="checkbox" id="agreement" name="agreement" required>
+          <label for="agreement">Я согласен на продолжении движухи</label>
+        </p>
+
+        <p>
+          <button type="submit">Пульнуть шахедом по НПЗ</button>
+        </p>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 20?? Год</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мои любимые игры</title>
+</head>
+<body>
+
+  <header>
+    <h1>Мои любимые игры: Undertale & Deltarune</h1>
+    <p>Игры, созданные Тоби Фоксом, где никто не обязан умирать.</p>
+  </header>
+
+  <main>
+    
+    <section>
+      <h2>О вселенной</h2>
+      <p><strong>Undertale</strong> и её параллельная вселенная <strong>Deltarune</strong> - это уникальные ролевые игры, которые перевернули представление о жанре RPG. Их главная особенность заключается в том, что любую битву с монстрами можно завершить мирным путем, используя разговоры, шутки и сострадание. Игры славятся своим потрясающим мета-повествованием, которое помнит каждый выбор игрока.</p>
+      <!-- Тут по сути должны быть аватарки игр но они не прогружаются, даже нейронки гемини и дипсик не помогли( -->
+      <div style="margin-top: 20px;">
+        <img src="https://imgur.com" alt="Постер Undertale" width="300" height="300" style="margin-right: 15px; vertical-align: middle;">
+        <img src="https://imgur.com" alt="Постер Deltarune" width="300" height="300" style="vertical-align: middle;">
+      </div>
+    </section>
+
+    <section>
+      <h2>Почему эти игры стали культовыми:</h2>
+      <ul>
+        <li><strong>Уникальная боевая система:</strong> совмещение механики Bullet Hell (уворачивание от снарядов в коробке) и пацифистских действий.</li>
+        <li><strong>Незабываемые персонажи:</strong> Санс, Папирус, Андайн, Сьюзи, Ральзей и многие другие, в которых невозможно не влюбиться.</li>
+        <li><strong>Гениальный саундтрек:</strong> музыка, полностью написанная Тоби Фоксом, задает тон в каждом моменте игр.</li>
+        <li><strong>Глубокий юмор и драма:</strong> игры заставляют смеяться в один голос, а через пять минут - искренне сопереживать героям.(я плакал. Нет, рыдал в концовке underta)</li>
+      </ul>
+    </section>
+
+    
+    <section>
+      <h2>Официальные ресурсы</h2>
+      <p>Вы можете узнать больше или скачать игры на официальных сайтах <a href="https://undertale.com" target="_blank" rel="noopener">Undertale</a> и <a href="https://deltarune.com" target="_blank" rel="noopener">Deltarune</a>.</p>
+    </section>
+
+    <section>
+      <h2>Оцените ваши впечатления</h2>
+      <form action="/submit-game-rating" method="post">
+        
+        <p>
+          <label for="username">Ваше имя (или никнейм):</label><br>
+          <input type="text" id="username" name="username" required placeholder="Введите ваше имя">
+        </p>
+
+        <p>
+          <label for="favorite-game">Какая игра вам ближе?</label><br>
+          <select id="favorite-game" name="favorite_game" required>
+            <option value="">-- Выберите игру --</option>
+            <option value="undertale">Undertale (История Фриск в Подземелье)</option>
+            <option value="deltarune">Deltarune (Приключения Крис в Темном мире)</option>
+            <option value="both">Обе игры одинаково прекрасны!</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="rating">Ваша оценка творчества Тоби Фокса (от 1 до 10):</label><br>
+          <select id="rating" name="rating" required>
+            <option value="">-- Выберите оценку --</option>
+            <option value="10">10 — Наполнено РЕШИМОСТЬЮ! ❤️</option>
+            <option value="9">9 — Потрясающе</option>
+            <option value="8">8 — Очень хорошо</option>
+            <option value="7">7 — Хорошо</option>
+            <option value="6">6 — Нормально</option>
+            <option value="5">5 — Скептически</option>
+            <option value="4">4 — Не понравилось</option>
+            <option value="3">3 — Плохо</option>
+            <option value="2">2 — Ужасно</option>
+            <option value="1">1 — Время для плохого времени (Bad Time)</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="fav-character">Кто ваш любимый персонаж и почему?</label><br>
+          <textarea id="fav-character" name="fav_character" rows="4" cols="40" placeholder="Санс, Меттатон, Спамтон, Ральзей или кто-то другой? Поделитесь..."></textarea>
+        </p>
+
+        <p>
+          <button type="submit">Отправить отзыв</button>
+        </p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Домашняя работа по HTML • Сделано с Решимостью.</p>
+  </footer>
+
+</body>
+</html>
