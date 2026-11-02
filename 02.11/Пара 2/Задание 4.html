@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 4</title>
+    <style>
+        .text { color: black; }
+        .active { color: green; font-weight: bold; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <p id="message" class="text">Текст. Просто текст</p>
+
+    <p>Тест текста 123123 "Привет Мир!"</p>
+    <p class="active">Интересный факт: Скоро выйдет Немецкий и Норвежский Leopard 2a8, ит немецкий будет хуже по нововедениям((( </p>
+
+    <script>
+const message = document.querySelector('#message');
+
+message.classList.add('active');
+console.log('Добавлен класс active. Список классов:', message.className);
+
+const hasActive = message.classList.contains('active');
+console.log('Содержит ли элемент класс active?:', hasActive);
+
+message.classList.remove('text');
+console.log('Удален класс text. Список классов:', message.className);
+
+message.classList.toggle('hidden');
+console.log('Переключен класс hidden. Список классов:', message.className);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+</head>
+<body>
+    <h1 id="main-title">Моя учебная страница</h1>
+
+    <p class="description">Первый абзац</p>
+    <p class="description">Второй абзац</p>
+    <p class="description">Третий абзац</p>
+
+    <ul>
+        <li id="first">HTML</li>
+        <li id="second">CSS</li>
+        <li id="third">JavaScript</li>
+    </ul>
+
+    <div>
+        <h2>Дополнительная информация</h2>
+    </div>
+
+    <script>
+let first = document.querySelector("#first");
+
+let parent = first.parentElement;
+
+console.log(parent);
+console.log(parent.children);
+console.log(parent.firstElementChild); 
+console.log(parent.lastElementChild);  
+console.log(first.nextElementSibling);  
+
+let third = document.querySelector("#third");
+
+console.log(third.previousElementSibling);
+
+    </script>
+</body>
+</html>

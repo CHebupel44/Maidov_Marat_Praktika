@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+
+    <a id="link" href="https://google.com">Перейти</a>
+
+    <script>
+const link = document.querySelector('#link');
+const currentHref = link.getAttribute('href');
+
+console.log('1. Текущий адрес ссылки:', currentHref);
+
+link.setAttribute('href', 'https://yandex.ru');
+link.setAttribute('target', '_blank');
+
+console.log('2. Атрибуты изменены. Новый href:', link.getAttribute('href'));
+
+const hasTarget = link.hasAttribute('target');
+const hasClass = link.hasAttribute('class');
+
+console.log('3. Есть ли атрибут target?:', hasTarget);
+console.log('3. Есть ли атрибут class?:', hasClass);
+
+link.removeAttribute('target');
+console.log('4. Атрибут target удален. Проверка:', link.hasAttribute('target'));
+    </script>
+</body>
+</html>
