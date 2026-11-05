@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 9</title>
+</head>
+<body>
+
+    <h1>Задание 9</h1>
+    
+    <button id="regular">Обычная функция</button>
+    <button id="arrow">Стрелочная функция</button>
+
+    <p>Ответ в консоле</p>
+
+    
+    <script>
+const regularBtn = document.querySelector('#regular');
+const arrowBtn = document.querySelector('#arrow');
+
+regularBtn.addEventListener('click', function(event) {
+    console.log('--- Тык по обычной функции ---');
+    console.log('this:', this); 
+    console.log('event.currentTarget:', event.currentTarget);
+});
+
+arrowBtn.addEventListener('click', (event) => {
+    console.log('--- Тык по стрелочной функции ---');
+    console.log('this:', this); 
+    console.log('event.currentTarget:', event.currentTarget);
+});
+/*
+В обычной функции this определяется в момент вызова. При срабатывании DOM-события браузер автоматически связывает this с элементом, на котором оно произошло.
+
+В стрелочной функции своего собственого контекста thid нету. Стрелочная функция замыкает тот this, который окружал её в момент создания.
+*/
+
+</script>
+    
+</body>
+</html>

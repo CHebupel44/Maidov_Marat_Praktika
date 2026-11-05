@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+
+    <h1 id="heading">Привет, это тестовый заголовок!</h1>
+
+    <button id="color">Изменить цвет текста</button>
+
+    <button id="background">Изменить фон страницы</button>
+
+    <script>
+        let heading = document.querySelector("#heading");
+
+        const textColors = ["red", "blue", "green", "orange", "purple", "brown"];
+        const bgColors = ["pink", "lightblue", "lightgreen", "lightyellow", "lavender", "thistle"];
+
+        let textColorIndex = 0;
+        let bgColorIndex = 0;
+
+        document.querySelector("#color").addEventListener("click", function() {
+            heading.style.color = textColors[textColorIndex];
+            
+            textColorIndex = (textColorIndex + 1) % textColors.length;
+        });
+
+        document.querySelector("#background").addEventListener("click", function() {
+            let randomIndex = Math.floor(Math.random() * bgColors.length);
+            document.body.style.backgroundColor = bgColors[randomIndex];
+        });
+    </script>
+</body>
+</html>

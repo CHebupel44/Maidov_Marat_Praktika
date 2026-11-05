@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 7</title>
+</head>
+<body>
+
+    <h1>Задание 7</h1>
+    <p><strong>Так же, F12 и консоль</p>
+
+    <script>
+const product = { name: 'Наушники', price: 5000 };
+
+function showProduct(discount, city) {
+    const finalPrice = this.price * (1 - discount / 100);
+    
+    console.log(`Товар: ${this.name}, Цена со скидкой: ${finalPrice} руб., Город доставки: ${city}`);
+}
+
+console.log("--- call() ---");
+showProduct.call(product, 10, 'Москва'); 
+
+console.log("--- apply() ---");
+showProduct.apply(product, [20, 'Санкт-Петербург']); 
+</script>
+
+</body>
+</html>

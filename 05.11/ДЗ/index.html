@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ДЗ</title>
+</head>
+<body>
+
+    <h1>ДЗ</h1>
+    <p>Как всегда, все ответы в консоле</p>
+    
+    <button id="action-btn">Нажми на меня</button>
+
+    <script>
+        const employee = {
+    name: 'Иван Петров',
+    position: 'Фронтенд-разработчик',
+    department: 'Департамент IT',
+    
+    showCard() {
+        console.log(`Сотрудник: ${this.name}, Должность: ${this.position}, Отдел: ${this.department}`);
+    }
+};
+
+console.log("--- Вызов как метод объекта ---");
+employee.showCard();
+//При вызове метода через точку (employee.showCard()) контекст this автоматически ссылается на объект перед точкой (employee) 
+
+
+console.log("--- Вызов из переменной ---");
+const stolenShowCard = employee.showCard;
+stolenShowCard(); 
+// Функция вызывается без привязки к объекту, поэтому this теряет связь с employee и начинает ссылаться на глобальный объект window.
+
+console.log("--- Фикс через bind() ---");
+const fixedShowCard = employee.showCard.bind(employee);
+fixedShowCard();
+//Метод bind создает новую функцию и привязывается к ней объект employee в качестве this.
+
+function showCardInCity(city) {
+    console.log(`Сотрудник: ${this.name}, Должность: ${this.position}, Город: ${city}`);
+}
+
+console.log("--- Вызов внешней функции через call() ---");
+showCardInCity.call(employee, 'Москва');
+
+console.log("--- Вызов внешней функции через apply() ---");
+showCardInCity.apply(employee, ['Санкт-Петербург']);
+//Методы this() и call() вызывают функцию мгновенно, подменяя ее this на переданный объект
+
+
+const btn = document.querySelector('#action-btn');
+
+btn.addEventListener('click', function(event) {
+    console.log("--- Обычная функция в событии ---");
+    console.log("this указывает на:", this); 
+    console.log("event.currentTarget указывает на:", event.currentTarget);
+});
+
+btn.addEventListener('click', (event) => {
+    console.log("--- Пункт 7: Стрелочная функция в событии ---");
+    console.log("this указывает на:", this); 
+    console.log("event.currentTarget указывает на:", event.currentTarget);
+});
+//В обычном обработчике this указывает на элемент, вызвавший событие, а у стрелочной функции своего this нет. Использование event.currentTarget безопасно и всегда ссылается на целевой элемент в обоих случаях.
+
+    </script>
+</body>
+</html>

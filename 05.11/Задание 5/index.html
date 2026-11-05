@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 5</title>
+    <style>
+        .delete-btn {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Мой список дел</h1>
+    
+    <input type="text" id="todoInput" placeholder="Введите задачу...">
+    <button id="addBtn">Добавить</button>
+
+    <p>Всего задач: <span id="counter">0</span></p>
+
+    <ul id="todoList"></ul>
+
+    <script>
+let todoInput = document.querySelector("#todoInput");
+let addBtn = document.querySelector("#addBtn");
+let todoList = document.querySelector("#todoList");
+let counter = document.querySelector("#counter");
+
+function updateCounter() {
+    let totalItems = todoList.querySelectorAll("li").length;
+    counter.textContent = totalItems;
+}
+
+addBtn.addEventListener("click", function() {
+    let taskText = todoInput.value.trim();
+
+    if (taskText === "") {
+        alert("Пожалуйста, напишите что нибудь!");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.textContent = taskText;
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Стереть с лица земли!";
+    deleteBtn.classList.add("delete-btn");
+
+    deleteBtn.addEventListener("click", function() {
+        li.remove();
+        updateCounter();
+    });
+
+    li.append(deleteBtn);
+    todoList.append(li);
+
+    todoInput.value = "";
+    updateCounter();
+});
+
+    </script>
+</body>
+</html>

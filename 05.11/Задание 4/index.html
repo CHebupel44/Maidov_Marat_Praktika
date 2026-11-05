@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 4</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="paragraph">Этот текст будет исчезать и появляться снова!</p>
+    <button id="delete">Переключить текст</button>
+
+    <script>
+       let paragraph = document.querySelector("#paragraph");
+let deleteButton = document.querySelector("#delete");
+
+deleteButton.addEventListener("click", function() {
+    paragraph.classList.toggle("hidden");
+});
+
+</script>
+
+</body>
+</html>

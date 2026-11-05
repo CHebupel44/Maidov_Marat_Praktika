@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 8</title>
+</head>
+<body>
+
+    <h1>Задание 8</h1>
+    <p>F12. Там все ответы</p>
+
+    
+    <script>
+    	
+const employee = {
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
+    showInfo() {
+        console.log(this.name, this.position);
+    }
+};
+
+console.log("--- Вызов метода ---");
+employee.showInfo();
+
+console.log("--- Вызов из переменной ---");
+const stolenShowInfo = employee.showInfo;
+stolenShowInfo();
+
+const boundShowInfo = employee.showInfo.bind(employee);
+
+console.log("--- bind функции ---");
+boundShowInfo();
+
+console.log("--- Доп. задание (второй сотрудник) ---");
+const employee2 = {
+    name: 'Елена',
+    position: 'Дизайнер'
+};
+
+const boundShowInfo2 = employee.showInfo.bind(employee2);
+boundShowInfo2();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 6</title>
+</head>
+<body>
+
+    <h1>Задание 6</h1>
+    <p>Результат работы программы  в консоли разработчика.</p>
+    <p> --> F12 --> Консоль 
+
+    <script>
+const student1 = { name: 'Алина', group: 'ВЕБ-21' };
+const student2 = { name: 'Максим', group: 'ВЕБ-22' };
+
+function showInfo() {
+    console.log(this.name, this.group);
+}
+
+student1.showInfo = showInfo;
+student2.showInfo = showInfo;
+
+console.log("--- Методы объектов ---");
+student1.showInfo();
+student2.showInfo();
+
+console.log("--- Отдельная переменная ---");
+const copiedShowInfo = student1.showInfo;
+copiedShowInfo();
+    </script>
+
+</body>
+</html>
