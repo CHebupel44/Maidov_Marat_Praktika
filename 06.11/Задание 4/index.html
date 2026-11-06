@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 4</title>
+</head>
+<body>
+    <h1>^-^</h1>
+<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRgOHw6qrcow9S05gwPLOWXgS-EuCluxS7Tc_8Ki9YQRRC9OCRx" alt="Старый бог здесь!" width="400">
+    <script>
+function checkWeather(temperature) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (temperature > 0) {
+        resolve("Тепло!");
+      } else {
+        reject(new Error("Холодно!"));
+      }
+    }, 1000);
+  });
+}
+
+checkWeather(5)
+  .then((message) => {
+    console.log("Результат при 5:", message);
+  })
+  .catch((error) => {
+    console.error("Ошибка при 5:", error.message);
+  });
+
+checkWeather(-5)
+  .then((message) => {
+    console.log("Результат при -5:", message);
+  })
+  .catch((error) => {
+    console.error("Ошибка при -5:", error.message);
+  });
+  </script>
+</body>
+</html>
+

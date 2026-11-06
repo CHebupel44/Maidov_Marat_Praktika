@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 8</title>
+</head>
+<body>
+    <h1>-_-</h1>
+    <img src="https://i.pinimg.com/736x/84/b4/d2/84b4d2fc948e9c1c5c01f2e21cc695b4.jpg" alt="груснявка" width="400">
+
+    <script>
+    	const fetchWithTimeout = (url, ms) => Promise.race([
+  fetch(url).then(res => res.json()),
+  new Promise((_, reject) => setTimeout(() => reject(new Error('Таймаут')), ms))
+]);
+
+const url = 'https://wttr.in';
+
+// Тестирование
+async function test() {
+  try {
+    const data = await fetchWithTimeout(url, 100);
+    console.log('Чотко 100мс:', data);
+  } catch (err) {
+    console.error('Ошибка 100мс:', err.message);
+  }
+
+  try {
+    const data = await fetchWithTimeout(url, 5000);
+    console.log('Чотко 5000мс. Температура:', data.current_condition[0].temp_C);
+  } catch (err) {
+    console.error('Ошибка 5000мс:', err.message);
+  }
+}
+
+test();
+    </script>
+</body>
+</html>

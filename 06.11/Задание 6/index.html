@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 6</title>
+</head>
+<body>
+    <h1>:)</h1>
+   <img src="https://i.pinimg.com/736x/2a/96/ff/2a96ff498e4a075edf9d99ee4e4c31a6.jpg" alt="мшк фрд" width="400">
+
+    <script>
+function getThreeCitiesWeather() {
+    const urls = [
+        'https://wttr.in/Moscow?format=j1',
+        'https://wttr.in/London?format=j1',
+        'https://wttr.in/Paris?format=j1'
+    ];
+
+    const cityNames = ['Москва', 'Лондон', 'Париж'];
+
+    const requests = urls.map(url => 
+        fetch(url).then(response => {
+            if (!response.ok) {
+                throw new Error(`Ошибка загрузки: ${response.status}`);
+            }
+            return response.json();
+        })
+    );
+
+    Promise.all(requests)
+        .then(results => {
+            results.forEach((data, index) => {
+                const temp = data.current_condition[0].temp_C;
+                console.log(`${cityNames[index]}: ${temp}°C`);
+            });
+        })
+        .catch(error => {
+            console.error('Произошла ошибка при выполнении Promise.all:', error);
+        });
+}
+
+getThreeCitiesWeather();
+    </script>
+</body>
+</html>

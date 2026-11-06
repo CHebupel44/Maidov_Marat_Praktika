@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2,3</title>
+</head>
+<body>
+    <h1>Все ответы лежат в консоли</h1>
+   <img src="https://i.pinimg.com/736x/0f/c0/60/0fc060c2daac95cff16af6b8946e1998.jpg" alt="ща ща ща ща ща " width="400">
+
+    <script>
+    	console.log("Скрипт запущен, инфа 100%");
+
+fetch('https://wttr.in/Moscow?format=j1')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP ошибка! Статус: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Полученные данные от API:", data);
+
+        const current = data.current_condition && data.current_condition[0];
+
+        if (!current) {
+            throw new Error("В ответе API нет данных о текущей погоде");
+        }
+
+        const temperature = current.temp_C;
+        const humidity = current.humidity;
+        
+        let weatherDesc = "Нет данных";
+        if (current.lang_ru && current.lang_ru[0]) {
+            weatherDesc = current.lang_ru[0].value;
+        } else if (current.weatherDesc && current.weatherDesc[0]) {
+            weatherDesc = current.weatherDesc[0].value;
+        }
+
+        console.log(`Температура: ${temperature}°C`);
+        console.log(`Влажность: ${humidity}%`);
+        console.log(`Погода: ${weatherDesc}`);
+    })
+    .catch(error => {
+        console.error('Ой-йой! Кажется произошла ошибка при получении данных.');
+        console.error('Текст ошибки:', error.message);
+        console.error('Полный объект ошибки:', error);
+        
+        if (error.message.includes('Failed to fetch')) {
+            console.warn("Вероятно, проблема с CORS. Запусти файл через Live Server.");
+        }
+    });
+
+    </script>
+</body>
+</html>

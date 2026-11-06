@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 7</title>
+</head>
+<body>
+    <h1>._.</h1>
+   <img src="https://i.pinimg.com/1200x/12/d1/a5/12d1a59543f6fabbb92ff13deea23bf8.jpg" alt="тяжкий выбор">
+
+    <script>
+const urls = [
+  'https://wttr.in',
+  'https://wttr.inn/Moscow?format=j1', 
+  'https://wttr.in'
+];
+
+async function getweather() {
+  const requests = urls.map(async (url) => {
+    const response = await fetch(url)
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return data.current_condition[0].temp_C;
+  });
+
+  const results = await Promise.allSettled(requests);
+
+  results.forEach((result, index) => {
+    console.log(`Результ для URL [${urls[index]}]:`);
+    
+    if (result.status === "fulfilled") {
+      console.log(`🟢 Чотко! Температура: ${result.value}°C`);
+    } else if (result.status === "rejected") {
+      console.log(`🔴 Не Чотко!: ${result.reason.message}`);
+    }
+    console.log('---');
+  });
+}
+
+getweather();
+</script>
+</body>
+</html>
