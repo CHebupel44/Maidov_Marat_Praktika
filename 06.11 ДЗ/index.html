@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+</head>
+<body>
+    <img src="https://i.pinimg.com/1200x/19/2f/5a/192f5a64a1a8117eedeed1764eda013c.jpg" alt="Егор" width="750" height="400">
+    <form id="weather-form">
+        <input type="text" id="city" placeholder="Введите город" required>
+        <button type="submit" id="btn">Запрос</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById('weather-form');
+        const input = document.getElementById('city');
+        const btn = document.getElementById('btn');
+        const result = document.getElementById('result');
+
+        async function fetchWeather(city) {
+            const url = `https://wttr.in/${encodeURIComponent(city)}?format=j1`;
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`Ошибка сервера: ${response.status}`);
+            }
+            
+            return response.json();
+        }
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const city = input.value.trim();
+            if (!city) return;
+
+            btn.disabled = true;
+            result.textContent = 'Грузим.';
+
+            try {
+                const data = await fetchWeather(city);
+                const temp = data.current_condition?.[0]?.temp_C;
+
+                if (temp !== undefined) {
+                    result.textContent = `Температура в ${city}: ${temp}°C`;
+                } else {
+                    throw new Error('Данные о температуре не найдены');
+                }
+            } catch (error) {
+                result.textContent = `Ошибка: ${error.message}`;
+            } finally {
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
